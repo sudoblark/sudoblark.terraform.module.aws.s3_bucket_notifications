@@ -20,7 +20,7 @@ jobs:
   validation:
     strategy:
       matrix:
-        folder: ["add", "folders", "here"]
+        folder: ["./", "./examples/s3_bucket_notifications"]
     name: Terraform validate for ${{ matrix.folder }}
     runs-on: ubuntu-20.04
     steps:
@@ -41,7 +41,7 @@ jobs:
   linting:
     strategy:
       matrix:
-        folder: ["add", "folders", "here"]
+        folder: ["./", "./examples/s3_bucket_notifications"]
     name: Terraform lint for ${{ matrix.folder }}
     runs-on: ubuntu-20.04
     steps:
@@ -55,27 +55,3 @@ jobs:
       - name: Run tflint
         run: tflint
         working-directory: ${{ matrix.folder }}
-
-  plan:
-    strategy:
-      matrix:
-        folder: ["add", "folders", "here"]
-    name: Terraform plan for ${{ matrix.folder }}
-    runs-on: ubuntu-20.04
-    needs: [validation, linting]
-    steps:
-      - uses: actions/checkout@v3
-        env:
-          GITHUB_TOKEN: ${{ env.REPO_GITHUB_TOKEN }}
-
-      - id: install-aws-cli
-        uses: unfor19/install-aws-cli-action@v1
-
-      - name: terraform plan
-        uses: dflook/terraform-plan@v1
-        with:
-          path: ${{ matrix.folder }}
-        env:
-          GITHUB_TOKEN: ${{ env.ORG_GITHUB_TOKEN }}
-          TERRAFORM_HTTP_CREDENTIALS: |
-            github.com/sudoblark=sudoblark-bot:${{ env.ORG_GITHUB_TOKEN }}
