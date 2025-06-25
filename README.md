@@ -1,4 +1,10 @@
 # sudoblark.terraform.module.aws.s3_bucket_notifications
+
+[![CI](https://github.com/sudoblark/sudoblark.terraform.module.aws.s3_bucket_notifications/actions/workflows/commit-to-pr.yaml/badge.svg)](https://github.com/sudoblark/sudoblark.terraform.module.aws.s3_bucket_notifications/actions/workflows/commit-to-pr.yaml)
+[![Terraform Version](https://img.shields.io/badge/Terraform-1.7%2B-blueviolet?logo=terraform)](https://developer.hashicorp.com/terraform/)
+[![Registry](https://img.shields.io/badge/registry-pending-lightgrey)](https://registry.terraform.io/)
+[![License](https://img.shields.io/github/license/sudoblark/sudoblark.terraform.module.aws.s3_bucket_notifications)](https://github.com/sudoblark/sudoblark.terraform.module.aws.s3_bucket_notifications/blob/main/LICENSE.txt)
+
 Terraform module create N number of notifications on a given S3 bucket. - repo managed by sudoblark.terraform.github
 
 ## Developer documentation
